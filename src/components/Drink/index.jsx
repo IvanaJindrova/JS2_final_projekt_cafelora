@@ -1,3 +1,4 @@
+import { Layers } from '../Layers/layers';
 import './style.css';
 
 const dataDrink = {
@@ -7,20 +8,18 @@ const dataDrink = {
 
 
 
-export const Drink = (name, image) => {
+export const Drink = (id, name, image) => {
     return (
         <>
-            <div className="drink">
+            <div className="drink" id={`drink-${id}`}>
               <div className="drink__product">
                 <div className="drink__cup">
-                  <img src={dataDrink.image} />
+                  <img src={dataDrink.image} alt={name}  />
                 </div>
                 <div className="drink__info">
                   <h3>{dataDrink.name}</h3>
-                  <div className="layer">
-                    <div className="layer__color" style={{ backgroundColor: '#613916' }}></div>
-                    <div className="layer__label">espresso</div>
-                  </div>
+                  <Layers />
+
                 </div>
               </div>              
                 <form className="drink__controls">
