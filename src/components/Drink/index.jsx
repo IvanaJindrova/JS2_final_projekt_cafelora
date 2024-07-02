@@ -1,23 +1,16 @@
 import { Layers } from '../Layers/layers';
 import './style.css';
 
-const dataDrink = {
-  name: "Ivanky pití",
-  image: "/favicon.ico"
-}
-
-
-
 export const Drink = (id, name, image) => {
     return (
         <>
-            <div className="drink" id={`drink-${id}`}>
+            <div className="drink" id={`drinks-${id}`}>
               <div className="drink__product">
                 <div className="drink__cup">
-                  <img src={dataDrink.image} alt={name}  />
+                  <img src={image} alt={name}  />
                 </div>
                 <div className="drink__info">
-                  <h3>{dataDrink.name}</h3>
+                  <h3>{name}</h3>
                   <Layers />
 
                 </div>
