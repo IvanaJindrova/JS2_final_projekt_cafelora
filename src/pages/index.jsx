@@ -26,6 +26,15 @@ document.addEventListener('click', () => {
       })
   })
 
+  const form = document.querySelectorAll("drink__controls")
+  console.log(form)
+  form.forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      const spravneID = e.target.dataset.id
+      console.log(spravneID)
+    })
+  })
+
 
 document.querySelector('#root').innerHTML = render(
   <div className="page">
