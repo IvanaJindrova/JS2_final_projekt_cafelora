@@ -26,14 +26,7 @@ document.addEventListener('click', () => {
       })
   })
 
-  const form = document.querySelectorAll("drink__controls")
-  console.log(form)
-  form.forEach((btn) => {
-    btn.addEventListener("click", async (e) => {
-      const spravneID = e.target.dataset.id
-      console.log(spravneID)
-    })
-  })
+
 
 
 document.querySelector('#root').innerHTML = render(
@@ -49,3 +42,33 @@ document.querySelector('#root').innerHTML = render(
 
   </div>
 );
+
+
+const form = document.querySelectorAll(".drink__controls");
+console.log(form)
+
+form.forEach((btn) => {
+  btn.addEventListener("click", async (e) => {
+    e.preventDefault()
+    const spravneID = e.currentTarget.dataset.id;
+    console.log(spravneID)
+
+    const objednaniDrinku = async () => {
+      await fetch(`http://localhost:4000/api/drinks/${spravneID}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify([{
+          op: 'replace',
+          path: '/ordered',
+          value: true,
+        }])
+      });
+
+      window.location.reload()
+    };
+
+    objednaniDrinku()
+  });
+});
