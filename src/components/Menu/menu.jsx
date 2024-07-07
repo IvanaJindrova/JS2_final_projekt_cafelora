@@ -4,7 +4,7 @@ import './menu.css';
 const ziskejOdpovedi = await fetch ("http://localhost:4000/api/drinks")
 const prevodNaJson = await ziskejOdpovedi.json()
 const drinksZAPI = prevodNaJson.data
-console.log(drinksZAPI)
+
 
 export const Menu = ( drinks ) => {
   return (
@@ -26,9 +26,7 @@ export const Menu = ( drinks ) => {
             />
           ))}
         </div>
-
           </div>
-
           <div className="order-detail">
             <a href="/order.html">Detail objednávky</a>
           </div>

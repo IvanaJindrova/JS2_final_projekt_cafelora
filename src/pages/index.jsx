@@ -41,7 +41,6 @@ document.querySelector('#root').innerHTML = render(
 
 
 const form = document.querySelectorAll(".drink__controls");
-console.log(form)
 
 form.forEach((btn) => {
   btn.addEventListener("click", async (e) => {
@@ -52,8 +51,7 @@ form.forEach((btn) => {
     const objednaniDrinku = async () => {
       const response = await fetch(`http://localhost:4000/api/drinks/${spravneID}`);
       const drink = await response.json()
-      const aktualneObjednano = drink.ordered
-      console.log(aktualneObjednano)
+      const aktualneObjednano = drink.data.ordered
      
       const nove = !aktualneObjednano
 
@@ -68,10 +66,8 @@ form.forEach((btn) => {
           value: nove,
         }])
       });
-
       window.location.reload()
     };
-
     objednaniDrinku()
   });
 });

@@ -10,7 +10,7 @@ export const Order = ({ items }) => {
           <div className="order__items">
             {items.map((item) => (
               <div key={item.id} className="order-item">
-                 <OrderItem key={item.id} name={item.name} image={item.image}/>
+                 <OrderItem key={item.id} name={item.name} image={`http://localhost:4000${item.image}`} />
               </div>
             ))}
           </div>

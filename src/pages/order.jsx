@@ -10,7 +10,7 @@ const objednaneNapoje = async () => {
   const response = await fetch('http://localhost:4000/api/drinks?filter=ordered:eq:true&select=id,name,image');
   const data = await response.json();
   const items = data.data
-  console.log(items)
+  return items
 }
 
 document.querySelector('#root').innerHTML = render(
@@ -18,7 +18,7 @@ document.querySelector('#root').innerHTML = render(
     <div className="page">
       <Header showMenu={false}/>
       <main className="order">
-          <Order items={objednaneNapoje}/>
+          <Order items={await (objednaneNapoje())}/>
       </main>
     <Footer />
     </div>
