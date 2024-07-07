@@ -9,7 +9,6 @@ import { Contact } from '../components/Contact/contact';
 import { Footer } from '../components/Footer/footer';
 
 
-
 document.addEventListener('click', () => {
   const navBtn = document.querySelector('.nav-btn')
   const rolloutNav = document.querySelector('.rollout-nav')
@@ -51,6 +50,13 @@ form.forEach((btn) => {
     console.log(spravneID)
 
     const objednaniDrinku = async () => {
+      const response = await fetch(`http://localhost:4000/api/drinks/${spravneID}`);
+      const drink = await response.json()
+      const aktualneObjednano = drink.ordered
+      console.log(aktualneObjednano)
+     
+      const nove = !aktualneObjednano
+
       await fetch(`http://localhost:4000/api/drinks/${spravneID}`, {
         method: "PATCH",
         headers: {
@@ -59,7 +65,7 @@ form.forEach((btn) => {
         body: JSON.stringify([{
           op: 'replace',
           path: '/ordered',
-          value: true,
+          value: nove,
         }])
       });
 
