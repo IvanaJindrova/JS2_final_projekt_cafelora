@@ -2,7 +2,6 @@ import { OrderItem } from "../OrderItem/orderItem";
 
 export const Order = ({ items }) => {
   return (
-    <main className="order">
       <div className="container order__content">
         <h1>Vaše objednávka</h1>
         {items.length === 0 ? (
@@ -11,13 +10,15 @@ export const Order = ({ items }) => {
           <div className="order__items">
             {items.map((item) => (
               <div key={item.id} className="order-item">
-                 <OrderItem />
+                 <OrderItem key={item.id} name={item.name} image={item.image}/>
               </div>
             ))}
           </div>
         )}
       </div>
-    </main>
   );
 };
+
+
+
 

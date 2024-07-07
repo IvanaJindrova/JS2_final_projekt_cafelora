@@ -26,9 +26,6 @@ document.addEventListener('click', () => {
       })
   })
 
-
-
-
 document.querySelector('#root').innerHTML = render(
   <div className="page">
     <Header showMenu={true} />

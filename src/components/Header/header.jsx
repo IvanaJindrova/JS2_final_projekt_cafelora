@@ -1,26 +1,6 @@
 import './header.css';
-/*
-export const Header = () => {
-    return (
-      <header showMenu="true">
-        <div className="header__content container">
-          <div className="site-logo"></div>
-          <div className="navigation">
-            <button className="nav-btn"></button>
-            <nav className="rollout-nav nav-closed">
-              <a href="#home">domů</a>
-              <a href="#menu">menu</a>
-              <a href="#gallery">galerie</a>
-              <a href="#contact">kontakt</a>
-            </nav>
-          </div>
-        </div>
-      </header>
-    );
-  }
-  */
-  // opravený header s podmínkou na showMenu
-  export const Header = ({ showMenu }) => {
+
+export const Header = ({ showMenu }) => {
   if (showMenu === true) {
     return (
       <header>
