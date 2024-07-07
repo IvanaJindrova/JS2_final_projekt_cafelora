@@ -1,8 +1,8 @@
 import './header.css';
-
+/*
 export const Header = () => {
     return (
-      <header>
+      <header showMenu="true">
         <div className="header__content container">
           <div className="site-logo"></div>
           <div className="navigation">
@@ -18,10 +18,10 @@ export const Header = () => {
       </header>
     );
   }
-  
-  /* opravený header s podmínkou na showMenu
+  */
+  // opravený header s podmínkou na showMenu
   export const Header = ({ showMenu }) => {
-  if (showMenu.value === true) {
+  if (showMenu === true) {
     return (
       <header>
         <div className="header__content container">
@@ -51,5 +51,3 @@ export const Header = () => {
     );
   }
 };
-
-  */
